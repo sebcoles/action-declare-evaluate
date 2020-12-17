@@ -1,0 +1,13 @@
+# action.yml
+name: 'Veracode Declare Evaluate'
+description: 'Use this action to to see if your Declare applications are passing policy. This action will fail if any applications are not passing policy'
+inputs:
+  configuration-file:
+    description: 'Path to Declare configuration file'
+    required: true
+    default: 'veracode.json'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.configuration-file }}
