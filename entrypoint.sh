@@ -6,3 +6,7 @@ fi
 if grep -q "[Policy][Compliance Status] Did Not Pass" declare.log; then
   exit 1
 fi
+## We should also fail if the policy is still calculating
+if grep -q "[Policy][Compliance Status] Calculating" declare.log; then
+  exit 1
+fi
